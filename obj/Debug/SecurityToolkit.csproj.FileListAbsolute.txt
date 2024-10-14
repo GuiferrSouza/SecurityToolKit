@@ -1,0 +1,9 @@
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\bin\Debug\SecurityToolkit.dll
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\bin\Debug\SecurityToolkit.pdb
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\bin\Debug\Newtonsoft.Json.xml
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\obj\Debug\SecurityToolkit.csproj.AssemblyReference.cache
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\obj\Debug\SecurityToolkit.csproj.CoreCompileInputs.cache
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\obj\Debug\Security.B798C8CC.Up2Date
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\obj\Debug\SecurityToolkit.dll
+C:\Users\gsouza\source\repos\SecurityToolkit\SecurityToolkit\obj\Debug\SecurityToolkit.pdb

@@ -1,0 +1,9 @@
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\bin\Debug\WindowsFormAnimation.dll
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\bin\Debug\WindowsFormAnimation.pdb
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\obj\Debug\WindowsFormAnimation.csproj.AssemblyReference.cache
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\obj\Debug\WindowsFormAnimation.csproj.CoreCompileInputs.cache
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\obj\Debug\WindowsFormAnimation.dll
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\obj\Debug\WindowsFormAnimation.pdb
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\bin\Debug\Newtonsoft.Json.xml
+C:\Users\gsouza\source\repos\WindowsFormAnimation\WindowsFormAnimation\obj\Debug\WindowsF.B40207C9.Up2Date
