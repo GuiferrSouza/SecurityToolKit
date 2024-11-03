@@ -1,9 +1,6 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 using System.IO;
-
 using Newtonsoft.Json;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SecurityToolkit
 {
@@ -16,10 +13,11 @@ namespace SecurityToolkit
         /// <param name="obj">The object to encrypt.</param>
         /// <param name="key">The encryption key.</param>
         /// <param name="iv">The initialization vector.</param>
+        /// <param name="settings">The JSON serializer settings.</param>
         /// <returns>A byte array containing the encrypted data.</returns>
-        public static byte[] Encrypt<T>(T obj, byte[] key, byte[] iv)
+        public static byte[] Encrypt<T>(T obj, byte[] key, byte[] iv, JsonSerializerSettings settings = null)
         {
-            byte[] data = SerializeObject(obj);
+            byte[] data = SerializeObject(obj, settings);
 
             using (var aes = Aes.Create())
             {
@@ -38,19 +36,16 @@ namespace SecurityToolkit
         }
 
         /// <summary>
-        /// Serializes an object to a byte array.
+        /// Serializes an object to a byte array using JSON.
         /// </summary>
         /// <typeparam name="T">The type of the object to serialize.</typeparam>
         /// <param name="obj">The object to serialize.</param>
+        /// <param name="settings">The JSON serializer settings.</param>
         /// <returns>A byte array containing the serialized object.</returns>
-        private static byte[] SerializeObject<T>(T obj)
+        private static byte[] SerializeObject<T>(T obj, JsonSerializerSettings settings = null)
         {
-            using (var ms = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
-                formatter.Serialize(ms, obj);
-                return ms.ToArray();
-            }
+            string json = JsonConvert.SerializeObject(obj, settings);
+            return System.Text.Encoding.UTF8.GetBytes(json);
         }
 
         /// <summary>
@@ -60,8 +55,9 @@ namespace SecurityToolkit
         /// <param name="bytes">The byte array containing the encrypted data.</param>
         /// <param name="key">The decryption key.</param>
         /// <param name="iv">The initialization vector.</param>
+        /// <param name="settings">The JSON serializer settings.</param>
         /// <returns>The decrypted object.</returns>
-        public static T Decrypt<T>(byte[] bytes, byte[] key, byte[] iv)
+        public static T Decrypt<T>(byte[] bytes, byte[] key, byte[] iv, JsonSerializerSettings settings = null)
         {
             using (var aes = Aes.Create())
             {
@@ -75,7 +71,7 @@ namespace SecurityToolkit
                         {
                             cs.CopyTo(outputMs);
                             byte[] data = outputMs.ToArray();
-                            return DeserializeObject<T>(data);
+                            return DeserializeObject<T>(data, settings);
                         }
                     }
                 }
@@ -83,18 +79,16 @@ namespace SecurityToolkit
         }
 
         /// <summary>
-        /// Deserializes a byte array to an object.
+        /// Deserializes a byte array to an object using JSON.
         /// </summary>
         /// <typeparam name="T">The type of the object to deserialize.</typeparam>
         /// <param name="data">The byte array containing the serialized object.</param>
+        /// <param name="settings">The JSON serializer settings.</param>
         /// <returns>The deserialized object.</returns>
-        private static T DeserializeObject<T>(byte[] data)
+        private static T DeserializeObject<T>(byte[] data, JsonSerializerSettings settings = null)
         {
-            using (var ms = new MemoryStream(data))
-            {
-                var formatter = new BinaryFormatter();
-                return (T)formatter.Deserialize(ms);
-            }
+            string json = System.Text.Encoding.UTF8.GetString(data);
+            return JsonConvert.DeserializeObject<T>(json, settings);
         }
     }
 }
